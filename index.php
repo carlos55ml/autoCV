@@ -21,7 +21,7 @@ include_once __DIR__ . '/modules/head.php';
           <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Inicio</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Perfil
+              <?php echo $userObj['username'] ?? "Invitado" ?>
             </a>
             <?php if($userObj) { ?>
               <ul class="dropdown-menu">
@@ -90,7 +90,7 @@ include_once __DIR__ . '/modules/head.php';
     </div>
   </section>
   <!-- Footer-->
-  <footer class="py-5 bg-dark">
+  <footer class="py-5 bg-dark fixed-bottom">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; AutoCV - Carlos Moran 2023</p>
     </div>
