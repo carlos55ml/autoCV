@@ -9,7 +9,6 @@ include_once __DIR__ . '/modules/head.php';
 <link rel="stylesheet" href="/assets/style/login.css">
 <body>
 <main class="form-signin w-100 m-auto">
-  <!-- // TODO cambiar acorde MVC -->
   <form action="/controller/userHandler.php" method="post" id="loginForm">
     <input type="hidden" name="action" value="login">
     <h1 class="h3 mb-3 fw-normal">Inicia Sesion</h1>

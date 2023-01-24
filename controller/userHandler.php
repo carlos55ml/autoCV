@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/DB.php';
+require_once __DIR__  . '/../model/User.php';
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -34,18 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 }
 
 
-/**
- * Fetch an specific user from DB
- * @param string $user The user to find
- * @return mixed The user Object, or null if no match.
- */
-function fetchUser(string $user) {
-  $query = 'SELECT * FROM users WHERE username = ?';
-  $values = array($user);
-  $result = DB::preparedQuery($query, $values);
-  return empty($result[0]) ? null : $result[0];
-}
-
 function logOut() {
   session_start();
   $_SESSION['user'] = null;
@@ -54,7 +42,7 @@ function logOut() {
 }
 
 function tryUserLogin(string $user, string $pass) {
-  $userObj = fetchUser($user);
+  $userObj = User::fetchUser($user);
   if (!$userObj) {
     return "'$user' NO EXISTE";
   }
@@ -68,16 +56,14 @@ function tryUserLogin(string $user, string $pass) {
 function registerUser($data) {
   $username = $data['userInput'];
   $passwd = hash('sha256', $data['passwordInput']);
-  if (fetchUser($username)) {
+  if (User::fetchUser($username)) {
     setcookie("errorMessage", "El usuario ya existe.", 0, "/");
     header("Location:/view/error.php");
-  } else {
-    $queryString =
-      "INSERT INTO users(username, passwd) VALUES (?, ?)";
-    $queryValues = array($username, $passwd);
-    DB::preparedQuery($queryString, $queryValues);
-    initSession($username, $passwd);
+    return;
   }
+
+  User::registerNewUser($username, $passwd);
+
 }
 
 
