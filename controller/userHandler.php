@@ -11,6 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       case 'register':
         registerUser($_POST);
         break;
+      case 'checkExist':
+        checkUser($_POST);
+        break;
       default:
         setcookie("errorMessage", "Error Desconocido.", 0, "/");
         header("Location:/view/error.php");
@@ -51,6 +54,12 @@ function tryUserLogin(string $user, string $pass) {
   }
 
   return true;
+}
+
+function checkUser($data) {
+  $user = $data['username'];
+  $result = User::fetchUser($user);
+  echo $result ? 'true' : 'false';
 }
 
 function registerUser($data) {

@@ -11,6 +11,26 @@ $(document).ready(function() {
       errorInfo.innerHTML = ""
     }
     $('button[type="submit"]').toggleClass("disabled", !isValid)
+    return
+  }
+
+  function checkUser() {
+    var userInput = $('#userInput').val()
+    $.ajax({
+      type: 'POST',
+      url: '/controller/userHandler.php',
+      data: {
+        'action': 'checkExist',
+        'username': userInput
+      },
+      success: (res) => {
+        if(res == 'true') {
+          isFormValid = false
+          errorInfo.innerHTML = "El usuario ya existe."
+          checkForm(isFormValid)
+        }
+      }
+    })
   }
 
   $('input.form-control').on("input", function() {
@@ -22,6 +42,8 @@ $(document).ready(function() {
     if (!userInput.match(validUserRegex)) {
       isFormValid = false
       errorInfo.innerHTML = "El usuario debe contener entre 6 y 12 caracteres, <br> entre a-z, A-Z, 0-9, '_', '.', empezar y terminar por caracteres alfanumericos, <br> y no __ o .. ."
+    } else {
+      checkUser()
     }
     if (passwdInput !== repeatPasswd) {
       isFormValid = false
