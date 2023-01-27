@@ -56,9 +56,9 @@ include_once __DIR__ . '/modules/head.php';
         </div>
         <div class="d-grid gap-2">
           <?php if ($userObj) { ?>
-          <button class="btn btn-primary btn-lg" type="button"><a href="#" style="text-decoration: none; color:white;">Empezar</a></button>
+            <a href="#" class="btn btn-primary btn-lg" style="text-decoration: none; color:white;">Empezar</a>
           <?php } else { ?>
-            <button class="btn btn-primary btn-lg" type="button"><a href="/login.php" style="text-decoration: none; color:white;">Empezar</a></button>
+            <a href="/login.php" class="btn btn-primary btn-lg" style="text-decoration: none; color:white;">Empezar</a>
           <?php } ?>
         </div>
       </div>
