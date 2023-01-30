@@ -37,6 +37,7 @@ include_once __DIR__ . '/../modules/head.php';
           <input type="text" class="form-control" id="formationPeriod-1" name="formationPeriod-1" placeholder="Sep 2010 - Jul 2016">
         </div>
 
+        <br>
         <button type="button" id="addFormation" class="btn btn-secondary">Añadir otra formacion</button>
       </div>
 
