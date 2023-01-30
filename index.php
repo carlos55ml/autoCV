@@ -56,7 +56,7 @@ include_once __DIR__ . '/modules/head.php';
         </div>
         <div class="d-grid gap-2">
           <?php if ($userObj) { ?>
-            <a href="#" class="btn btn-primary btn-lg" style="text-decoration: none; color:white;">Empezar</a>
+            <a href="/view/createCv.php" class="btn btn-primary btn-lg" style="text-decoration: none; color:white;">Empezar</a>
           <?php } else { ?>
             <a href="/login.php" class="btn btn-primary btn-lg" style="text-decoration: none; color:white;">Empezar</a>
           <?php } ?>
