@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+include_once __DIR__ . '/modules/getUser.php';
+
 $title = "Registrate";
 $mustLogin = false;
 include_once __DIR__ . '/modules/head.php';

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-$title = "Inicio";
+$title = "Inicio - AutoCV";
 $mustLogin = false;
-
+include_once __DIR__ . '/modules/getUser.php';
 include_once __DIR__ . '/modules/head.php';
 ?>
 <link rel="stylesheet" href="/assets/style/index.css">
@@ -27,7 +27,7 @@ include_once __DIR__ . '/modules/head.php';
             </a>
             <?php if ($userObj) { ?>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Ver perfil</a></li>
+                <li><a class="dropdown-item" href="/view/profile.php">Ver perfil</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
@@ -122,10 +122,8 @@ include_once __DIR__ . '/modules/head.php';
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary"><a class="no-decors" href="/login.php">Inicia
-              sesion</a></button>
-          <button type="button" class="btn btn-info"><a class="no-decors color-black"
-              href="/register.php">Registrate</a></button>
+          <a type="button" class="btn btn-primary no-decors" href="/login.php">Inicia sesion</a>
+          <a type="button" class="btn btn-info no-decors color-black" href="/register.php">Registrate</a>
         </div>
       </div>
     </div>

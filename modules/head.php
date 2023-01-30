@@ -1,17 +1,8 @@
 <?php
-require_once __DIR__ . '/../controller/userHandler.php';
-
-session_start();
-$sessionUser = isset($_SESSION['user']) ? $_SESSION['user'] : "Anonimo";
-
-$userObj = $sessionUser !== "Anonimo" ? User::fetchUser($sessionUser) : null;
-
 if (!$userObj and $mustLogin) {
   header("Location:/login.php");
 }
 ?>
-
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
