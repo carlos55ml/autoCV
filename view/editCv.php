@@ -5,14 +5,14 @@ include_once __DIR__ . '/../modules/getUser.php';
 <!DOCTYPE html>
 <html lang="en">
 <?php
-$title = "Crea tu CV";
+$title = "Edita tu CV";
 $mustLogin = true;
 include_once __DIR__ . '/../modules/head.php';
 ?>
 
 <body>
   <div class="container px-lg-5">
-    <h1 class="text-center">Crea tu curriculum</h1>
+    <h1 class="text-center">Edita tu curriculum</h1>
     <form action="/controller/cvHandler.php" method="post">
       <input type="hidden" name="action" value="createCv">
       <input type="hidden" name="userId" value="<?php echo $userObj[0] ?>">
@@ -90,7 +90,19 @@ include_once __DIR__ . '/../modules/head.php';
     </form>
   </div>
 
-  <script src="/assets/js/createCv.js"></script>
+  <!-- Loading modal -->
+  <div class="modal fade" id="loadingModal" tabindex="-1" aria-labelledby="loadingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-body text-center">
+        <div class="spinner-border text-center text-light" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="/assets/js/editCv.js"></script>
 </body>
 
 </html>

@@ -1,4 +1,13 @@
 /**
+ * ELEMENTOS
+ */
+var loadingModal
+
+$(document).ready(function () {
+
+})
+
+/**
  * FORMACION
  */
 var formationIndex = 1
@@ -15,7 +24,7 @@ function addFormationFields() {
   var newFields = document.createElement("div")
   newFields.id = `formation-${formationIndex}`
   newFields.innerHTML =
-  `<hr><div id="formation-${formationIndex}">
+    `<hr><div id="formation-${formationIndex}">
   <label for="formationName-${formationIndex}" class="form-label">Titulo</label>
   <input type="text" class="form-control" id="formationName-${formationIndex}" name="formationName-${formationIndex}" placeholder="Primaria">
   <label for="formationCenter-${formationIndex}" class="form-label">Centro o Universidad</label>
@@ -51,6 +60,7 @@ function addExperienceFields() {
     return
   }
   $(`input[type="hidden"][name="experiences"]`).val(experienceIndex)
+
   var newFields = document.createElement("div")
   newFields.id = `experience-${experienceIndex}`
   newFields.innerHTML =
@@ -89,6 +99,7 @@ function addOtherFields() {
     return
   }
   $(`input[type="hidden"][name="others"]`).val(otherIndex)
+
   var newFields = document.createElement("div")
   newFields.id = `other-${otherIndex}`
   newFields.innerHTML =
@@ -112,3 +123,68 @@ function removeOtherFields() {
 $('button#addOther').click(addOtherFields)
 $('button#removeOther').click(removeOtherFields)
 
+function json2array(json) {
+  var result = [];
+  var keys = Object.keys(json);
+  keys.forEach(function (key) {
+    result.push(json[key]);
+  });
+  return result;
+}
+
+async function fillFields(json) {
+  fieldsArray = JSON.parse(json)
+
+  for (var i = 1; i < fieldsArray.formations; i++) {
+    addFormationFields()
+  }
+  delete fieldsArray.formations
+
+  for (var i = 1; i < fieldsArray.experiences; i++) {
+    addExperienceFields()
+  }
+  delete fieldsArray.experiences
+
+  for (var i = 1; i < fieldsArray.others; i++) {
+    addOtherFields()
+  }
+  delete fieldsArray.others
+
+
+
+  Object.entries(fieldsArray).forEach(([k, v]) => {
+    // RECORREMOS TODOS LOS VALORES
+    console.log(`${k}: ${v}`)
+    $(`input[name="${k}"]`).val(v)
+  });
+
+  setTimeout(() => {
+    loadingModal.hide();
+  }, 500)
+}
+
+$(document).ready(async function () {
+  const userId = $('input[type="hidden"][name="userId"]').val()
+  loadingModal = new bootstrap.Modal('#loadingModal', {
+    keyboard: false,
+    backdrop: 'static'
+  })
+
+  loadingModal.show()
+
+  $.ajax({
+    type: 'POST',
+    url: '/controller/cvHandler.php',
+    data: {
+      'action': 'fetchUserCv',
+      'userId': userId
+    },
+    success: (res) => {
+      if (res) {
+        fillFields(res)
+      } else {
+        console.error("CV DEL USUARIO NO ENCONTRADO");
+      }
+    }
+  })
+})
