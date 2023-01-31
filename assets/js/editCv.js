@@ -3,9 +3,6 @@
  */
 var loadingModal
 
-$(document).ready(function () {
-
-})
 
 /**
  * FORMACION
@@ -123,14 +120,9 @@ function removeOtherFields() {
 $('button#addOther').click(addOtherFields)
 $('button#removeOther').click(removeOtherFields)
 
-function json2array(json) {
-  var result = [];
-  var keys = Object.keys(json);
-  keys.forEach(function (key) {
-    result.push(json[key]);
-  });
-  return result;
-}
+/**
+ * Relleno
+ */
 
 async function fillFields(json) {
   fieldsArray = JSON.parse(json)
@@ -153,8 +145,6 @@ async function fillFields(json) {
 
 
   Object.entries(fieldsArray).forEach(([k, v]) => {
-    // RECORREMOS TODOS LOS VALORES
-    console.log(`${k}: ${v}`)
     $(`input[name="${k}"]`).val(v)
   });
 
