@@ -142,8 +142,9 @@ async function fillFields(json) {
   }
   delete fieldsArray.others
 
-
-
+  /**
+   * Recorre el array para rellenar los campos
+   */
   Object.entries(fieldsArray).forEach(([k, v]) => {
     $(`input[name="${k}"]`).val(v)
   });
