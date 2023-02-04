@@ -174,7 +174,8 @@ $(document).ready(async function () {
       if (res) {
         fillFields(res)
       } else {
-        console.error("CV DEL USUARIO NO ENCONTRADO");
+        console.error("CV DEL USUARIO NO ENCONTRADO. REDIRIGIENDO..");
+        location.replace('/view/createCv.php') 
       }
     }
   })

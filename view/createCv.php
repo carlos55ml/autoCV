@@ -90,7 +90,7 @@ include_once __DIR__ . '/../modules/head.php';
     </form>
   </div>
 
-  <script src="/assets/js/createCv.js"></script>
+  <script src="/view/assets/js/createCv.js"></script>
 </body>
 
 </html>

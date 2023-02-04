@@ -102,7 +102,7 @@ include_once __DIR__ . '/../modules/head.php';
   </div>
 
 
-  <script src="/assets/js/editCv.js"></script>
+  <script src="/view/assets/js/editCv.js"></script>
 </body>
 
 </html>

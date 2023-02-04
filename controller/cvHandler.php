@@ -43,5 +43,5 @@ function updateCv($content, $id) {
 
 function fetchUserCv($user) {
   $result = CV::fetchUserCv($user);
-  echo $result['content'];
+  echo $result['content'] ?? null;
 }

@@ -8,7 +8,7 @@ $mustLogin = false;
 include_once __DIR__ . '/modules/head.php';
 
 ?>
-<link rel="stylesheet" href="/assets/style/register.css">
+<link rel="stylesheet" href="/view/assets/style/register.css">
 <body>
 <main class="form-signin w-100 m-auto">
   <form action="/controller/userHandler.php" method="post" id="loginForm">
@@ -36,7 +36,7 @@ include_once __DIR__ . '/modules/head.php';
   </form>
 </main>
 
-<script src="/assets/js/register.js"></script>
+<script src="/view/assets/js/register.js"></script>
 
 </body>
 </html>

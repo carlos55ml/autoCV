@@ -6,7 +6,7 @@ $mustLogin = false;
 include_once __DIR__ . '/modules/getUser.php';
 include_once __DIR__ . '/modules/head.php';
 ?>
-<link rel="stylesheet" href="/assets/style/index.css">
+<link rel="stylesheet" href="/view/assets/style/index.css">
 
 <body>
   <?php if ($userObj) { ?>
@@ -130,7 +130,7 @@ include_once __DIR__ . '/modules/head.php';
   </div>
   <!-- FIN MODAL BIENVENIDA -->
 
-  <script src="/assets/js/index.js"></script>
+  <script src="/view/assets/js/index.js"></script>
 
 </body>
 
