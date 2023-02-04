@@ -1,5 +1,5 @@
 <?php
-include_once __DIR__ . '/../modules/getUser.php';
+include_once __DIR__ . '/../view/modules/getUser.php';
 $id = isset($_GET['id'])?$_GET['id']:null;
 $target = 0;
 if ($id) {
@@ -13,7 +13,7 @@ if ($id) {
 <?php
 $title = "VerCV - AutoCV";
 $mustLogin = false;
-include_once __DIR__ . '/../modules/head.php';
+include_once __DIR__ . '/../view/modules/head.php';
 ?>
 <body>
 <?php if ($userObj) { ?>

@@ -1,5 +1,5 @@
 <?php
-include_once __DIR__ . '/../modules/getUser.php';
+include_once __DIR__ . '/../view/modules/getUser.php';
 
 ?>
 <!DOCTYPE html>
@@ -7,7 +7,7 @@ include_once __DIR__ . '/../modules/getUser.php';
 <?php
 $title = "Crea tu CV";
 $mustLogin = true;
-include_once __DIR__ . '/../modules/head.php';
+include_once __DIR__ . '/../view/modules/head.php';
 ?>
 
 <body>

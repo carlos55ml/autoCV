@@ -1,5 +1,5 @@
 <?php
-include_once __DIR__ . '/../modules/getUser.php';
+include_once __DIR__ . '/../view/modules/getUser.php';
 $id = isset($_GET['id']) ? $_GET['id'] : $userObj[0];
 if (is_null($id)) {
   setcookie("errorMessage", "Error Inesperado.", 0, "/");
@@ -18,7 +18,7 @@ if (is_null($id)) {
 $title = $target['username'] . " - AutoCV";
 $mustLogin = false;
 
-include_once __DIR__ . '/../modules/head.php';
+include_once __DIR__ . '/../view/modules/head.php';
 ?>
 
 <body>

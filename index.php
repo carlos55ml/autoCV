@@ -3,8 +3,8 @@
 <?php
 $title = "Inicio - AutoCV";
 $mustLogin = false;
-include_once __DIR__ . '/modules/getUser.php';
-include_once __DIR__ . '/modules/head.php';
+include_once __DIR__ . '/view/modules/getUser.php';
+include_once __DIR__ . '/view/modules/head.php';
 ?>
 <link rel="stylesheet" href="/view/assets/style/index.css">
 
