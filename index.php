@@ -12,12 +12,11 @@ include_once __DIR__ . '/modules/head.php';
   <?php if ($userObj) { ?>
     <span id="isLogged" hidden>true</span>
   <?php } ?>
+  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container px-lg-5" data-bs-theme="dark">
       <a class="navbar-brand" href="/">AutoCV</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-          class="navbar-toggler-icon"></span></button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Inicio</a></li>
@@ -31,20 +30,26 @@ include_once __DIR__ . '/modules/head.php';
                 <li>
                   <hr class="dropdown-divider">
                 </li>
+                <li><a class="dropdown-item" href="/view/createCv.php">Crear/Editar CV</a></li>
+                <li><a class="dropdown-item" href="/view/viewCv.php">Ver CV</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
                 <li><a class="dropdown-item" href="/controller/userHandler.php?action=logout">Cerrar sesion</a></li>
               </ul>
-            </li>
-          <?php } else { ?>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/login.php">Iniciar Sesion</a></li>
-              <li><a class="dropdown-item" href="/register.php">Registrate</a></li>
-            </ul>
-          <?php } ?>
+          </li>
+        <?php } else { ?>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/login.php">Iniciar Sesion</a></li>
+            <li><a class="dropdown-item" href="/register.php">Registrate</a></li>
+          </ul>
+        <?php } ?>
 
         </ul>
       </div>
     </div>
   </nav>
+  <!-- END: NAVBAR -->
   <!-- Header-->
   <header class="py-5">
     <div class="container px-lg-5">
@@ -72,8 +77,7 @@ include_once __DIR__ . '/modules/head.php';
         <div class="col-lg-6 col-xxl-4 mb-5">
           <div class="card bg-light border-0 h-100">
             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-              <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i
-                  class="bi bi-collection"></i></div>
+              <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-collection"></i></div>
               <h2 class="fs-4 fw-bold">Diseño dinamico</h2>
               <p class="mb-0">Elige los elementos que quieres mostrar y vea una vista previa del resultado</p>
             </div>
@@ -82,8 +86,7 @@ include_once __DIR__ . '/modules/head.php';
         <div class="col-lg-6 col-xxl-4 mb-5">
           <div class="card bg-light border-0 h-100">
             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-              <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i
-                  class="bi bi-cloud-download"></i></div>
+              <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-cloud-download"></i></div>
               <h2 class="fs-4 fw-bold">Gratuito</h2>
               <p class="mb-0">Nuestras funciones estan disponibles para todos los usuarios.</p>
             </div>
@@ -92,8 +95,7 @@ include_once __DIR__ . '/modules/head.php';
         <div class="col-lg-6 col-xxl-4 mb-5">
           <div class="card bg-light border-0 h-100">
             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-              <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i
-                  class="bi bi-card-heading"></i></div>
+              <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-card-heading"></i></div>
               <h2 class="fs-4 fw-bold">Todas las funcionalidades</h2>
               <p class="mb-0">Separa el contenido por categorias y elementos, para ordenarlo a tu gusto.</p>
             </div>
@@ -128,7 +130,7 @@ include_once __DIR__ . '/modules/head.php';
       </div>
     </div>
   </div>
-  <!-- FIN MODAL BIENVENIDA -->
+  <!-- END: MODAL BIENVENIDA -->
 
   <script src="/view/assets/js/index.js"></script>
 

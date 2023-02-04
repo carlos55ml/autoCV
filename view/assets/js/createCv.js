@@ -112,4 +112,30 @@ function removeOtherFields() {
 $('button#addOther').click(addOtherFields)
 $('button#removeOther').click(removeOtherFields)
 
+$(document).ready(async function () {
+  const userId = $('input[type="hidden"][name="userId"]').val()
+  loadingModal = new bootstrap.Modal('#loadingModal', {
+    keyboard: false,
+    backdrop: 'static'
+  })
 
+  loadingModal.show()
+
+  $.ajax({
+    type: 'POST',
+    url: '/controller/cvHandler.php',
+    data: {
+      'action': 'fetchUserCv',
+      'userId': userId
+    },
+    success: (res) => {
+      if (res) {
+        location.replace('/view/editCv.php') 
+      } else {
+        setTimeout(() => {
+          loadingModal.hide();
+        }, 500)
+      }
+    }
+  })
+})

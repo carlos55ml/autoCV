@@ -11,6 +11,36 @@ include_once __DIR__ . '/../modules/head.php';
 ?>
 
 <body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-lg-5" data-bs-theme="dark">
+      <a class="navbar-brand" href="/">AutoCV</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" aria-current="page" href="/">Inicio</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <?php echo $userObj['username'] ?? "Invitado" ?>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/view/profile.php">Ver perfil</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item active" href="/view/createCv.php">Crear/Editar CV</a></li>
+              <li><a class="dropdown-item" href="/view/viewCv.php">Ver CV</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="/controller/userHandler.php?action=logout">Cerrar sesion</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- END: NAVBAR -->
   <div class="container px-lg-5">
     <h1 class="text-center">Crea tu curriculum</h1>
     <form action="/controller/cvHandler.php" method="post">
@@ -88,6 +118,19 @@ include_once __DIR__ . '/../modules/head.php';
       <hr>
       <input type="submit" class="w-100 btn btn-lg btn-primary" value="Crear">
     </form>
+  </div>
+  <br>
+  <br>
+
+    <!-- Loading modal -->
+    <div class="modal fade" id="loadingModal" tabindex="-1" aria-labelledby="loadingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-body text-center">
+        <div class="spinner-border text-center text-light" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="/view/assets/js/createCv.js"></script>
