@@ -17,6 +17,13 @@ class CV {
     );
   }
 
+  public static function deleteCv($userId) {
+    return DB::preparedQuery(
+      'DELETE FROM cvs WHERE user=?;',
+      [$userId]
+    );
+  }
+
   public static function fetchUserCv($userId) {
     $result = DB::preparedQuery(
       'SELECT * FROM cvs WHERE user=?',

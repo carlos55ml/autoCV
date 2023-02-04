@@ -2,6 +2,7 @@
  * ELEMENTOS
  */
 var loadingModal
+var confirmDeleteModal
 
 
 /**
@@ -121,6 +122,47 @@ $('button#addOther').click(addOtherFields)
 $('button#removeOther').click(removeOtherFields)
 
 /**
+ * BORRAR CV
+ */
+
+$('button#deleteCv').click(() => {
+  confirmDeleteModal = new bootstrap.Modal('#confirmDeleteModal', {
+    keyboard: false,
+    backdrop: 'static'
+  })
+  confirmDeleteModal.show()
+})
+
+$('button#confirmDeleteCv').click(() => {
+  confirmDeleteModal.hide()
+  loadingModal.show()
+  setTimeout(() => {
+    const userId = $('input[type="hidden"][name="userId"]').val()
+    deleteCv(userId)
+  }, 500)
+
+})
+
+function deleteCv(userId) {
+  $.ajax({
+    type: 'POST',
+    url: '/controller/cvHandler.php',
+    data: {
+      'action': 'deleteCv',
+      'userId': userId
+    },
+    success: (res) => {
+      if (res) {
+        console.log("Borrado con exito");
+        location.replace('/')
+      } else {
+        console.error('Error al borrar');
+      }
+    }
+  })
+}
+
+/**
  * Relleno
  */
 
@@ -175,7 +217,7 @@ $(document).ready(async function () {
         fillFields(res)
       } else {
         console.error("CV DEL USUARIO NO ENCONTRADO. REDIRIGIENDO..");
-        location.replace('/view/createCv.php') 
+        location.replace('/view/createCv.php')
       }
     }
   })

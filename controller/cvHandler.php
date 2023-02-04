@@ -10,6 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       case 'fetchUserCv':
         fetchUserCv($_POST['userId']);
         break;
+      case 'deleteCv':
+        deleteCv($_POST['userId']);
+        break;
 
       default:
         setcookie("errorMessage", "Error Desconocido.", 0, "/");
@@ -21,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 function tryCv($data) {
   unset($data['action']);
-  print_r($data);
   $user = $data['userId'];
   unset($data['userId']);
   $content = json_encode($data, JSON_UNESCAPED_UNICODE);
@@ -31,6 +33,10 @@ function tryCv($data) {
   } else {
     createCv($content, $user);
   }
+}
+
+function deleteCv($userId) {
+  print_r(CV::deleteCv($userId));
 }
 
 function createCv($content, $user) {
