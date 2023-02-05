@@ -26,10 +26,6 @@ include_once __DIR__ . '/view/modules/head.php';
             </a>
             <?php if ($userObj) { ?>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/view/profile.php">Ver perfil</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
                 <li><a class="dropdown-item" href="/view/createCv.php">Crear/Editar CV</a></li>
                 <li><a class="dropdown-item" href="/view/viewCv.php">Ver CV</a></li>
                 <li>

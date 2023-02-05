@@ -1,0 +1,12 @@
+span.nobold {
+  font-weight: 400 !important;
+}
+
+div#cvContent span {
+  font-weight: 600;
+}
+
+div#cvContent h5 {
+  color: rgb(85, 85, 85);
+  margin-bottom: 1px;
+}

@@ -33,6 +33,7 @@ function tryCv($data) {
   } else {
     createCv($content, $user);
   }
+  header("Location:/view/viewCv.php?id=$user");
 }
 
 function deleteCv($userId) {

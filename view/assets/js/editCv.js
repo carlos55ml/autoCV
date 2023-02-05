@@ -174,9 +174,7 @@ async function fillFields(json) {
   }
   delete fieldsArray.formations
 
-  for (var i = 1; i < fieldsArray.experiences; i++) {
-    addExperienceFields()
-  }
+  
   delete fieldsArray.experiences
 
   for (var i = 1; i < fieldsArray.others; i++) {
