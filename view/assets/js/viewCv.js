@@ -122,10 +122,8 @@ $(document).ready(async function () {
       } else {
         setTimeout(() => {
           loadingModal.hide()
-        }, 300)
-        setTimeout(() => {
-          errorModal.show()
-        }, 320)
+        }, 500)
+        errorModal.show()
       }
     }
   })

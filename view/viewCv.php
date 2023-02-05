@@ -144,7 +144,7 @@ include_once __DIR__ . '/../view/modules/head.php';
           <p>No se ha encontrado CV</p>
         </div>
         <div class="modal-footer">
-          <a href="./viewCv.php"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button></a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
